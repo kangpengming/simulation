@@ -1,0 +1,105 @@
+1.适用与Unity 4.0版本
+2.将字节转换成float类型的数据,因为是ASIIC值接收。所以需要转换。
+3.test.cs :对加入波束旋转的设计
+	json数据的解析：
+		（1）模型的名称：
+		（2）经度
+		（3）纬度
+		（4）高度
+		（5）是否有子物体
+		（6）中心物体的名称
+		（7）波束的名称
+		（8）波束的方位角
+		（9）波束的俯仰角
+		（10）旋转的角速度
+4. Method.cs：字节符与字符串之间的转换；经纬度与坐标之间的转换；
+5.在每个生成地形出文件中TerrainManager*根据位置创建地形，首先根据（飞行器）位置获取地形应该距离（0,0）位置多少个地形，向下取整完成地形。
+6.自动生成目标移动数据，模型根据数据进行模拟。
+7.将导弹攻击船舰的模型导入。
+
+需要完成的任务：
+（1）在Plane文件中删掉飞行器的运行
+（2）在MoveMent文件中已经添加了飞行器的运行。
+
+
+
+	/*
+	private Vector3 startPosition;
+	private Vector3 endPosition;
+	private Vector3 point;
+	private Vector3 newPoint;
+	private float startTime;
+	private float endTime;
+	private float[] listTime;
+	private Vector3[] listPos;
+	private float speed;
+	private int num;
+	/**
+	 *      ***在这之前先将模型放置到指定的初始的位置***
+	 * 首先读入数据，将数据与读入的时间进行存储到一个二维数组中。
+	 * 当读入第三个数据后，开始飞行状态，取出前两个数值然后进行差值计算。
+	 * 计算完成后，检测飞行器的运行位置：是否达到第二个数据的位置。
+	 * 没有，继续飞行，
+	 * 否则，首先检测是否有下一个数据：
+	 * 没有，停止运行，否则，进行计算。
+	 *
+	 * */
+	// Use this for initialization
+	/*void Start () {
+		num = 0;
+		listTime = new float[100];
+		listPos = new Vector3[100];
+		startTime = Time.time;
+		startPosition = transform.position;
+		endPosition = listPos[num];
+		point = endPosition - transform.position;
+		//speed = Vector3.Distance(transform.position,endPosition)/(listTime[0]-startTime);
+		speed = 9;
+		num++;
+	}
+	
+	// Update is called once per frame
+	void Update () {
+	
+		if( Vector3.Distance(transform.position,endPosition) > 0.01f){
+			
+			transform.Translate(new Vector3(0,0,1)* speed * Time.deltaTime,Space.Self);
+			Quaternion missileRotation = Quaternion.LookRotation(point ,Vector3.up);
+			transform.rotation = Quaternion.Slerp(transform.rotation , missileRotation , Time.deltaTime*0.3f);
+			
+		}else{
+			endPosition = listPos[num];
+			point = endPosition - transform.position;
+			speed = Vector3.Distance(endPosition,transform.position) / (Time.time - startTime);
+			startTime = Time.time;
+			num++;
+		}
+	}*/
+	
+	
+	/**
+	下面的代码放置在start中
+	伪代码，求解两个物体之间的距离差
+		
+		
+		下面的代码放在了update中
+		 if(Input.GetAxis("Mouse ScrollWheel")<0){
+			if(offset.z < 80){
+				offset.x += 2*Xrate;
+				offset.y += 2*Yrate;
+				offset.z += 2*Zrate;	
+			}
+		}
+		if(Input.GetAxis("Mouse ScrollWheel")>0){ 
+			if(offset.z > 10){
+			offset.x -= 2*Xrate;
+			offset.y -= 2*Yrate;
+			offset.z -= 2*Zrate;
+			}
+		}*/
+	
+	
+	
+	
+	*/
+	
